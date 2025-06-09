@@ -3,3 +3,6 @@ server/node_modules/
 server/dist/
 package-lock.json
 server/package-lock.json
+
+# Environment variables
+.env

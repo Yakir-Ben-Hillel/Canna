@@ -1,4 +1,5 @@
 import express from 'express';
+import prisma from '../models';
 import strainRoutes from './routes/strains';
 import geoFilter from './middleware/geoFilter';
 import reviewsRouter from './routes/reviews';
@@ -14,6 +15,11 @@ app.use('/reviews', reviewsRouter);
 
 app.get('/', (_req, res) => {
   res.send('Hello from Express');
+});
+
+app.get('/strains', async (_req, res) => {
+  const strains = await prisma.strain.findMany();
+  res.json(strains);
 });
 
 app.post('/chat', mcp, (req, res) => {

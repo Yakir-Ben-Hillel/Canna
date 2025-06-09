@@ -7,14 +7,18 @@
     "build": "tsc",
     "start": "npm run build && node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "prisma": "prisma generate --schema=server/models/schema.prisma",
+    "seed": "ts-node prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "@prisma/client": "^5.13.0",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
@@ -28,6 +32,7 @@
     "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
+    "prisma": "^5.13.0"
     "@types/node": "^20.11.19"
   }
 }
