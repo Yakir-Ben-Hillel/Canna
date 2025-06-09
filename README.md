@@ -4,7 +4,7 @@ AI-Based Cannabis Sommelier
 
 🌿 Product Overview
 
-The AI Cannabis Sommelier is a mobile-first, GPT-powered platform that provides personalized cannabis strain recommendations based on user needs, regional product availability, and a growing network of community insights. It leverages ChatGPT with custom instruction sets and integrates with public APIs and delivery platforms to offer real-time, localized cannabis recommendations, reviews, and purchasing options.
+The AI Cannabis Sommelier is a web-first, GPT-powered platform that provides personalized cannabis strain recommendations based on user needs, regional product availability, and a growing network of community insights. It leverages ChatGPT with custom instruction sets and integrates with public APIs and delivery platforms to offer real-time, localized cannabis recommendations, reviews, and purchasing options.
 
 🚀 MVP Goals
 
@@ -60,7 +60,7 @@ Placeholder hooks for third-party delivery services.
 
 🚧 Architecture Overview
 
-Frontend: React Native + TypeScript (mobile app first)
+Frontend: React + TypeScript (web first)
 Backend: Node.js + TypeScript with Express
 AI Layer: ChatGPT with MCP prompt wrappers
 Database: PostgreSQL (user/review/strain data) + Redis (caching)
@@ -136,7 +136,7 @@ GPT auto-detects locale using MCP context
 
 ChatGPT prompt wrapper for strain classification
 
-Basic React Native mobile app
+Basic React web app
 
 Integration with Israeli cannabis API
 
