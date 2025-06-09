@@ -1,4 +1,6 @@
 import express from 'express';
+import strainRoutes from './routes/strains';
+import geoFilter from './middleware/geoFilter';
 import reviewsRouter from './routes/reviews';
 import { mcp } from './middleware/mcp';
 import dispensaryRouter from './routes/dispensaries';
@@ -7,9 +9,8 @@ export const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-
+app.use('/strains', geoFilter, strainRoutes);
 app.use('/reviews', reviewsRouter);
-
 
 app.get('/', (_req, res) => {
   res.send('Hello from Express');
