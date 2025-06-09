@@ -1,5 +1,6 @@
 import express from 'express';
 import { mcp } from './middleware/mcp';
+import dispensaryRouter from './routes/dispensaries';
 
 export const app = express();
 const port = process.env.PORT || 3000;
@@ -20,6 +21,10 @@ app.post('/chat', mcp, (req, res) => {
 
   const msg = req.body.message || '';
   res.json({ reply: `Echo (${req.mcp?.language}): ${msg}` });
+app.use('/dispensaries', dispensaryRouter);
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
 
 if (require.main === module) {
