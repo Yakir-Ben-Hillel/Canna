@@ -1,4 +1,6 @@
 import express from 'express';
+import authRouter from './routes/auth';
+import { authMiddleware } from './middleware/auth';
 import prisma from '../models';
 import strainRoutes from './routes/strains';
 import geoFilter from './middleware/geoFilter';
@@ -15,6 +17,12 @@ app.use('/reviews', reviewsRouter);
 
 app.get('/', (_req, res) => {
   res.send('Hello from Express');
+});
+
+app.use('/auth', authRouter);
+
+app.post('/reviews', authMiddleware, (req, res) => {
+  res.json({ message: `Review submitted by ${req.user}` });
 });
 
 app.get('/strains', async (_req, res) => {
